@@ -18,3 +18,4 @@ Technologies
 HTML: For structuring the form and elements.
 CSS: For styling the form and making it responsive across various devices.
 JavaScript: For enabling form validation, navigation between steps, and updating the form summary.
+
