@@ -3,303 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="stylesheet" href="./app/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Multi-Step form</title>  
 </head>
-<body>
-  <!-- Sidebar start -->
-  <div class="container" id="container">
-    <div class="displayStep" id="displayStep">
-      <div class="circle">
-        <div class="circle1" id="circle1"><p>1</p></div>
-        <div class="circle1" id="circle1"><p>2</p></div>
-        <div class="circle1" id="circle1"><p>3</p></div>
-        <div class="circle1" id="circle1"><p>4</p></div>
-      </div>
-
-      <div class="steps">
-        <div class="step1">
-          <p>Step 1</p>
-          <span>Your info</span>          
+<body class="bg-gray-200 font-sans">
+  <div class="container mx-auto mt-12 flex bg-white rounded-lg shadow-lg w-[1000px] h-[560px]">
+    <!-- Sidebar start -->
+    <div class="w-[274px] bg-cover bg-no-repeat bg-[url('/assets/images/bg-sidebar-desktop.svg')] flex justify-center items-start py-10">
+      <div class="flex flex-col items-center gap-10">
+        <div class="flex flex-col items-center gap-5">
+          <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center">
+            <p>1</p>
+          </div>
+          <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center">
+            <p>2</p>
+          </div>
+          <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center">
+            <p>3</p>
+          </div>
+          <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center">
+            <p>4</p>
+          </div>
         </div>
-        <div class="step1">
-          <p>Step 2</p>
-          <span>Select plan</span>          
-        </div>
-        <div class="step1">
-          <p>Step 3</p>
-          <span>Add-ons</span>          
-        </div>
-        <div class="step1">
-          <p>Step 4</p>
-          <span>Summary</span>          
+        <div class="space-y-5">
+          <div class="text-center">
+            <p>Step 1</p>
+            <span class="text-gray-500">Your info</span>
+          </div>
+          <div class="text-center">
+            <p>Step 2</p>
+            <span class="text-gray-500">Select plan</span>
+          </div>
+          <div class="text-center">
+            <p>Step 3</p>
+            <span class="text-gray-500">Add-ons</span>
+          </div>
+          <div class="text-center">
+            <p>Step 4</p>
+            <span class="text-gray-500">Summary</span>
+          </div>
         </div>
       </div>
     </div>
     <!-- Sidebar end -->
 
     <!-- Step 1 start -->
-    <div class="stepContainer" id="stepContainer">
-      <div class="affichStep">
-        <div class="stepInfo" id="stepInfo">
-          <h1>Personal info</h1>
-          <p class="description">
-            Please provide your name, email address, and phone number.
-          </p>
-          <div class="flexError">
-            <p>Name</p>
-            <span id="errorName"></span>
-          </div>
+    <div class="w-full p-10">
+      <div class="space-y-6">
+        <h1 class="text-2xl font-semibold">Personal info</h1>
+        <p class="text-gray-600">Please provide your name, email address, and phone number.</p>
 
+        <div class="flex flex-col space-y-4">
+          <div class="flex justify-between">
+            <label for="infoName" class="text-gray-700">Name</label>
+            <span id="errorName" class="text-red-500"></span>
+          </div>
           <input 
-            type="text"
-            name=""
-            id="infoName"
+            type="text" 
+            id="infoName" 
+            class="w-full p-3 border rounded-lg" 
             placeholder="e.g. Stephen King"
           >
-          <div class="flexError">
-            <p>Email Address</p>
-            <span id="errorName"></span>
+          
+          <div class="flex justify-between">
+            <label for="infoMail" class="text-gray-700">Email Address</label>
+            <span id="errorName" class="text-red-500"></span>
           </div>
-
           <input 
-            type="text"
-            name=""
-            id="infoMail"
+            type="email" 
+            id="infoMail" 
+            class="w-full p-3 border rounded-lg" 
             placeholder="e.g. stephenking@lorem.com"
           >
-          <div class="flexError">
-            <p>Phone Number</p>
-            <span id="errorNum"></span>
-          </div>
 
+          <div class="flex justify-between">
+            <label for="infoNumber" class="text-gray-700">Phone Number</label>
+            <span id="errorNum" class="text-red-500"></span>
+          </div>
           <input 
-            type="text"
-            name=""
-            id="infoNumber"
+            type="tel" 
+            id="infoNumber" 
+            class="w-full p-3 border rounded-lg" 
             placeholder="e.g. +1 234 567 890"
           >
-
-          <div class="buttonContainerStepOne">
-            <button onclick="goStepTwo()" class="nextStep"></button>
-          </div>
         </div>
-        <button>Next Step</button>
-      </div>
-      <!-- Step 1 end -->
 
-      <!-- Step 2 start -->
-
-      <!-- Select plan -->
-      <div class="stepPlan" id="stepPlan">
-        <h1>Select your plan</h1>
-        <p class="descrition">You have the option of monthly or yearly billing.</p>
-
-        <div class="planMonth" id="planMonth">
-          <button class="planButton" id="moisArcade" onclick="getPrice1()">
-            <img src="./assets/images/icon-arcade.svg" alt="">
-            <p>Arcade</p>
-            <span class="priceMonth" id="priceMonth">$9/mo</span>
-          </button>
-
-          <button class="planButton" id="moisArcade" onclick="getPrice1()">
-            <img src="./assets/images/icon-advanced.svg" alt="">
-            <p>Advanced</p>
-            <span class="priceMonth" id="priceMonth">$12/mo</span>
-          </button>
-
-          <button class="planButton" id="moisArcade" onclick="getPrice1()">
-            <img src="./assets/images/icon-pro.svg" alt="">
-            <p>Pro</p>
-            <span class="priceMonth" id="priceMonth">$15/mo</span>
+        <div class="flex justify-end">
+          <button onclick="goStepTwo()" class="bg-blue-600 text-white px-6 py-3 rounded-lg">
+            Next Step
           </button>
         </div>
-
-        <div class="planMonth" id="planYear">
-          <button class="planButton" id="anneeArcade" onclick="getPrice4()">
-            <img src="./assets/images/icon-arcade.svg" alt="">
-            <p>Arcade</p>
-            <span class="priceYear">$90/yr</span>
-            <label for="" class="free">2 months free</label>
-          </button>
-
-          <button class="planButton" id="anneeAdvanced" onclick="getPrice5()">
-            <img src="./assets/images/icon-advanced.svg" alt="">
-            <p>Advanced</p>
-            <span class="priceYear">$120/yr</span>
-            <label for="" class="free">2 months free</label>
-          </button>
-
-          <button class="planButton" id="anneeArcade" onclick="getPrice6()">
-            <img src="./assets/images/icon-pro.svg" alt="">
-            <p>Pro</p>
-            <span class="priceYear">$150/yr</span>
-            <label for="" class="free">2 months free</label>
-          </button>
-        </div>
-        <div class="switch">
-          <p class="monthly">Monthly</p>
-          <label for="" class="check">
-            <input type="checkbox" name="" id="switch" id="checkbox" onclick="reset()">
-            <span></span>
-          </label>
-          <p class="yearly">Yearly</p>
-        </div>
-        <div class="buttonContainerStepTwo">
-          <button onclick="backStepOne()" class="goBack">Go Back</button>
-          <button onclick="goStepThree()" class="nestStep">Next Step</button>
-        </div>        
-      </div>
-      <!-- Step 2 end -->
-
-      <!-- Step 3 start -->
-
-      <!-- Add ons -->
-       <div class="stepAddOn" id="stepAdOon">
-        <h1>Pick add-ons</h1>
-        <p class="descrition">Add-ons help enhance your gaming experience.</p>
-
-        <div id="addonMois">
-          <div class="addOnButton">
-            <div class="regroup">
-              <input type="checkbox" name="adOnn" id="onlineMois" value="1">
-              <div class="addOn">
-                <p class="AddSize">Online service</p>
-                <span>Access to multiplayer games</span>
-              </div>
-            </div>
-            <p class="prix">+$1/mo</p>
-          </div> 
-          
-          <div class="addOnButton">
-            <div class="regroup">
-              <input type="checkbox" name="addon" id="storageMois" value="2">
-              <div class="addOn">
-                <p class="AddSize">Larger storage</p>
-                <span>Extra 1TB of cloud save</span>
-              </div>
-            </div>
-            <p class="prix">+$2/mo</p>
-          </div> 
-
-          <div class="addOnButton">
-            <div class="regroup">
-              <input type="checkbox" name="addon" id="customizableMois" value="1">
-              <div class="addOn">
-                <p class="AddSize">Customizable Profile</p>
-                <span>Custom theme on your profile</span>
-              </div>
-            </div>
-            <p class="prix">+$2/mo</p>
-          </div> 
-        </div>
-
-        <!-- Year button -->
-        <div id="addonAnne">
-          <div class="addOnButton">
-            <div class="regroup">
-              <input type="checkbox" name="adOnn" id="onlineAnne" value="10">
-              <div class="addOn">
-                <p class="AddSize">Online service</p>
-                <span>Access to multiplayer games</span>
-              </div>
-            </div>
-            <p class="prix">+$10/yr</p>
-          </div> 
-          
-          <div class="addOnButton">
-            <div class="regroup">
-              <input type="checkbox" name="addon" id="storageAnne" value="20">
-              <div class="addOn">
-                <p class="AddSize">Larger storage</p>
-                <span>Extra 1TB of cloud save</span>
-              </div>
-            </div>
-            <p class="prix">+$20/yr</p>
-          </div> 
-
-          <div class="addOnButton">
-            <div class="regroup">
-              <input type="checkbox" name="addon" id="customizableAnne" value="20">
-              <div class="addOn">
-                <p class="AddSize">Customizable Profile</p>
-                <span>Custom theme on your profile</span>
-              </div>
-            </div>
-            <p class="prix">+$20/yr</p>
-          </div> 
-        </div>
-        <div class="buttonContainerStepThree">
-          <button onclick="backStepTwo()" class="goBack">Go Back</button>
-          <button onclick="goStepFour()" class="nestStep">Next Step</button>
-        </div>
-      </div>
-      <!-- Step 3 end -->
-
-      <!-- Step 4 start -->
-
-      <!-- Summary -->
-      <div class="stepSummary" id="stepSummary">
-        <h1>Finishing up</h1>
-        <p class="discription">Double-check everything looks OK before confirming.</p>
-        <div class="resume">
-          <div class="containerResume">
-            <div id="resumeMonth">
-              <div class="flexResume">
-                <div>
-                  <h4 id="modeResume">Choose a plan</h4>
-                  <button onclick="goFromFourToTwo()">Change</button>
-                </div>
-                <label for="" id="priceResume"></label>
-              </div>
-              <hr>
-              <span></span>
-
-              <div class="flexResume">
-                <p>Online service</p>
-                <label for="" id="onlinePrice">+$0</label>
-              </div>
-              <div class="flexResume">
-                <p>Larger Storage</p>
-                <label for="" id="storagePrice">+$0</label>
-              </div>
-              <div class="flexResume">
-                <p>Customizable Profile</p>
-                <label for="" id="onlinePrice">+$0</label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Dynamically add subscription and add-on selections here -->
-          <div class="flexTotal">
-            <p id="modeTotal">Total (per month/year)</p>
-            <span id="totalPrice"></span>
-            <span class="dollar">$</span>
-          </div>
-
-          <div class="buttonContainerStepFour">
-            <button onclick="backStepThree()" class="goBack">Go Back</button>
-            <button onclick="goToStepThankYou()" class="nestStep">Confirm</button>
-          </div>
-        </div>
-      </div>
-      <!-- Step 4 end -->
-
-      <!-- Step 5 start -->
-
-      <!-- Thank You -->
-      <div class="stepThankYou" id="stepThankYou">
-        <img src="./assets/images/icon-thank-you.svg" alt="">
-        <h1>Thank you!</h1>
-        <p>
-          Thanks for confirming your subscription! We hope you have fun 
-          using our platform. If you ever need support, please feel free 
-          to email us at support@loremgaming.com.
-        </p>
       </div>
     </div>
+    <!-- Step 1 end -->
   </div>
-  <!-- Step 5 end -->
   <script src="./app/scripts.js"></script>
 </body>
 </html>
