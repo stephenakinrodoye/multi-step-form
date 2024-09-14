@@ -1,9 +1,19 @@
+//declaring variables
 const goToStepTwo = document.querySelector('#go-to-step2');
 const stepOneDetails = document.querySelector('#step-one-details');
+const stepOneIdentifier = document.querySelector('#step-one-identifier');
+const stepTwoIdentifier = document.querySelector('#step-two-identifier');
+const stepThreeIdentifier = document.querySelector('#step-three-identifier');
+//const stepTwoDetails = document.querySelector('#step-two-details');
 
+
+//logic to move to step 2
 goToStepTwo.addEventListener('click', function () {
-  stepOneDetails.innerHTML = `
-  <!-- Step 1 start -->
+  stepOneIdentifier.classList.remove('text-zinc-950');
+  stepTwoIdentifier.classList.add('text-zinc-950');
+  
+  stepOneDetails.innerHTML = `  
+  <!-- Step 2 start -->
   <div class="w-full p-10">
     <div class="space-y-6">
       <h1 class="text-2xl font-semibold">Select your plan</h1>
@@ -41,11 +51,68 @@ goToStepTwo.addEventListener('click', function () {
       <div class="flex justify-end">
         <a href="">Go back</a>
     
-        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg" id="go-to-step2">
+        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg" id="go-to-step3">
           Next Step
         </button>
       </div>
     </div>
-  </div>
-</div>`
+  </div>`
+
+  // logic to move to step 3
+  const goToStepThree = document.querySelector('#go-to-step3');
+  goToStepThree.addEventListener('click', () => {
+    stepTwoIdentifier.classList.remove('text-zinc-950');
+    stepThreeIdentifier.classList.add('text-zinc-950');
+
+    stepOneDetails.innerHTML = `
+    <!-- Add ons -->
+    <div class="stepAddOn" id="stepAdOon">
+      <h1>Pick add-ons</h1>
+      <p class="descrition">Add-ons help enhance your gaming experience.</p>
+
+      <div id="addonMois">
+        <div class="addOnButton">
+          <div class="regroup">
+            <input type="checkbox" name="adOnn" id="onlineMois" value="1">
+            <div class="addOn">
+              <p class="AddSize">Online service</p>
+              <span>Access to multiplayer games</span>
+            </div>
+          </div>
+          <p class="prix">+$1/mo</p>
+        </div> 
+      
+        <div class="addOnButton">
+          <div class="regroup">
+            <input type="checkbox" name="addon" id="storageMois" value="2">
+            <div class="addOn">
+              <p class="AddSize">Larger storage</p>
+              <span>Extra 1TB of cloud save</span>
+            </div>
+          </div>
+          <p class="prix">+$2/mo</p>
+        </div> 
+
+        <div class="addOnButton">
+          <div class="regroup">
+            <input type="checkbox" name="addon" id="customizableMois" value="1">
+            <div class="addOn">
+              <p class="AddSize">Customizable Profile</p>
+              <span>Custom theme on your profile</span>
+            </div>
+          </div>
+          <p class="prix">+$2/mo</p>
+        </div> 
+      </div>
+
+      <div class="flex justify-end">
+        <a href="" id="go-back-to-step2">Go back</a>
+    
+        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg" id="go-to-step3">
+          Next Step
+        </button>
+      </div>
+    </div>`
+  });
 });
+
