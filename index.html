@@ -1,102 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Multi-Step form</title>  
-</head>
-<body class="bg-gray-200 font-sans">
-  <div class="container mx-auto mt-12 flex bg-white rounded-lg shadow-lg w-[1000px] h-[560px]">
-    <!-- Sidebar start -->
-    <div class="w-[22rem] bg-cover bg-no-repeat bg-[url('./assets/images/bg-sidebar-desktop.svg')] flex justify-center items-start py-10">
-      <div class="flex flex-col items-center gap-10">
-        <div class="flex flex-col items-center gap-5">
-          <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center">
-            <p>1</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Multi-Step form</title>  
+  </head>
+  <body class="bg-gray-200 font-sans">
+    <div class="container mx-auto mt-12 flex bg-white rounded-lg shadow-lg w-[60rem] h-[35rem]" id="general-container">
+      
+      <!-- Sidebar start -->
+      <div class="w-[22rem] bg-cover bg-no-repeat bg-[url('./assets/images/bg-sidebar-desktop.svg')] flex justify-center items-start py-10 rounded-lg ml-4 my-4">
+        <div class="flex items-center gap-10">
+          <div class="flex flex-col items-center gap-5">
+            <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center border border-blue-200 font-bold text-zinc-950">
+              <p>1</p>
+            </div>
+            <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center border border-blue-200 font-bold">
+              <p>2</p>
+            </div>
+            <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center border border-blue-200 font-bold">
+              <p>3</p>
+            </div>
+            <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center border border-blue-200 font-bold">
+              <p>4</p>
+            </div>
           </div>
-          <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center">
-            <p>2</p>
-          </div>
-          <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center">
-            <p>3</p>
-          </div>
-          <div class="bg-blue-200 text-white w-12 h-12 rounded-full flex justify-center items-center">
-            <p>4</p>
-          </div>
-        </div>
-        <div class="space-y-5">
-          <div class="text-center">
-            <p>Step 1</p>
-            <span class="text-gray-500">Your info</span>
-          </div>
-          <div class="text-center">
-            <p>Step 2</p>
-            <span class="text-gray-500">Select plan</span>
-          </div>
-          <div class="text-center">
-            <p>Step 3</p>
-            <span class="text-gray-500">Add-ons</span>
-          </div>
-          <div class="text-center">
-            <p>Step 4</p>
-            <span class="text-gray-500">Summary</span>
+          <div class="space-y-5">
+            <div class="text-center">
+              <p>Step 1</p>
+              <span class="text-gray-500">Your info</span>
+            </div>
+            <div class="text-center">
+              <p>Step 2</p>
+              <span class="text-gray-500">Select plan</span>
+            </div>
+            <div class="text-center">
+              <p>Step 3</p>
+              <span class="text-gray-500">Add-ons</span>
+            </div>
+            <div class="text-center">
+              <p>Step 4</p>
+              <span class="text-gray-500">Summary</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Sidebar end -->
+      <!-- Sidebar end -->
 
-    <!-- Step 1 start -->
-    <div class="w-full p-10">
-      <div class="space-y-6">
-        <h1 class="text-2xl font-semibold">Personal info</h1>
-        <p class="text-gray-600">Please provide your name, email address, and phone number.</p>
+      <!-- Step 1 start -->
+      <div class="w-full p-10" id="step-one-details">
+        <div class="space-y-6">
+          <h1 class="text-2xl font-semibold">Personal info</h1>
+          <p class="text-gray-600">Please provide your name, email address, and phone number.</p>
 
-        <div class="flex flex-col space-y-4">
-          <div class="flex justify-between">
-            <label for="infoName" class="text-gray-700">Name</label>
-            <span id="errorName" class="text-red-500"></span>
+          <div class="flex flex-col space-y-4">
+            <div class="flex justify-between">
+              <label for="infoName" class="text-gray-700">Name</label>
+              <span id="errorName" class="text-red-500"></span>
+            </div>
+            <input 
+              type="text" 
+              id="infoName" 
+              class="w-full p-3 border rounded-lg" 
+              placeholder="e.g. Stephen King"
+            >
+            
+            <div class="flex justify-between">
+              <label for="infoMail" class="text-gray-700">Email Address</label>
+              <span id="errorName" class="text-red-500"></span>
+            </div>
+            <input 
+              type="email" 
+              id="infoMail" 
+              class="w-full p-3 border rounded-lg" 
+              placeholder="e.g. stephenking@lorem.com"
+            >
+
+            <div class="flex justify-between">
+              <label for="infoNumber" class="text-gray-700">Phone Number</label>
+              <span id="errorNum" class="text-red-500"></span>
+            </div>
+            <input 
+              type="tel" 
+              id="infoNumber" 
+              class="w-full p-3 border rounded-lg" 
+              placeholder="e.g. +1 234 567 890"
+            >
           </div>
-          <input 
-            type="text" 
-            id="infoName" 
-            class="w-full p-3 border rounded-lg" 
-            placeholder="e.g. Stephen King"
-          >
-          
-          <div class="flex justify-between">
-            <label for="infoMail" class="text-gray-700">Email Address</label>
-            <span id="errorName" class="text-red-500"></span>
-          </div>
-          <input 
-            type="email" 
-            id="infoMail" 
-            class="w-full p-3 border rounded-lg" 
-            placeholder="e.g. stephenking@lorem.com"
-          >
 
-          <div class="flex justify-between">
-            <label for="infoNumber" class="text-gray-700">Phone Number</label>
-            <span id="errorNum" class="text-red-500"></span>
+          <div class="flex justify-end">
+            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg" id="go-to-step2">
+              Next Step
+            </button>
           </div>
-          <input 
-            type="tel" 
-            id="infoNumber" 
-            class="w-full p-3 border rounded-lg" 
-            placeholder="e.g. +1 234 567 890"
-          >
-        </div>
-
-        <div class="flex justify-end">
-          <button onclick="goStepTwo()" class="bg-blue-600 text-white px-6 py-3 rounded-lg">
-            Next Step
-          </button>
         </div>
       </div>
     </div>
     <!-- Step 1 end -->
-  </div>
-  <script src="./app/scripts.js"></script>
-</body>
+    <script src="./scripts/scripts.js"></script>
+  </body>
 </html>
